@@ -47,7 +47,8 @@ class apache {
     include apache::install
 
     include apache::service
-    
+
     include apache::purge
 
+    include apache::homepage
 }
