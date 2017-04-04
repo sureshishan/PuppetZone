@@ -44,21 +44,10 @@
 #
 class apache {
 
-    $package_name = $facts['os']['family'] ? {
-        'RedHat' => 'httpd',
-        'Debian' => 'apache2',
-    }
+    include apache::install
 
-    package { $package_name :
-        ensure => installed,
-    }
-
-    service { $package_name :
-        ensure     => running,
-        enable     => true,
-        hasrestart => true,
-        hasstatus  => true,
-        # pattern    => ,
-    }
+    include apache::service
+    
+    include apache::purge
 
 }
