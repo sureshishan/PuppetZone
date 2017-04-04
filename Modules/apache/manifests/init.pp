@@ -53,7 +53,7 @@ class apache {
         ensure => installed,
     }
 
-    service { package_name :
+    service { $package_name :
         ensure     => running,
         enable     => true,
         hasrestart => true,
