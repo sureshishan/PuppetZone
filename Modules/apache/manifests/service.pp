@@ -1,13 +1,15 @@
 # Class#
 #
-class apache::service {
+class apache::service inherits apache::params{
     # resources
-    $package_name = $facts['os']['family'] ? {
-        'RedHat' => 'httpd',
-        'Debian' => 'apache2',
-    }
+    #$package_name = $facts['os']['family'] ? {
+    #    'RedHat' => 'httpd',
+    #    'Debian' => 'apache2',
+    #}
 
-    service { $package_name :
+
+
+    service { $apache::params::package_name :
         ensure     => running,
         enable     => true,
         hasrestart => true,

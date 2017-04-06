@@ -1,14 +1,14 @@
 # Class: 
 #
 #
-class apache::purge {
+class apache::purge inherits apache::params{
     # resources
-    $package_name = $facts['os']['family'] ? {
-        'RedHat' => 'httpd',
-        'Debian' => 'apache2',
-    }
+    #$package_name = $facts['os']['family'] ? {
+    #    'RedHat' => 'httpd',
+    #    'Debian' => 'apache2',
+    #}
 
-    package { $package_name :
+    package { $apache::params::package_name :
         ensure => purged,
     }
 }
