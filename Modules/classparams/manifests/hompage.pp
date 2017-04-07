@@ -1,12 +1,15 @@
 # Class: 
 #
 #
-class classparams::homepage inherits classparams::params {
+class classparams::homepage(
+    $local_file_name = 'index',
+    $homepage_location = '/var/www/html/index.html'
+) inherits classparams::params {
     # resources
-    file { '/var/www/html/index.html' :
+    file { $homepage_location :
         ensure => file,
         #source => 'puppet:///modules/class/file.txt';
-        content => file('classparams/index.html'),
+        content => file("classparams/${local_file_location}.html"),
         notify => Service["${classparams::params::package_name}"]
     }
 }
