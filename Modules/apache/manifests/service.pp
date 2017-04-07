@@ -14,6 +14,7 @@ class apache::service inherits apache::params{
         enable     => true,
         hasrestart => true,
         hasstatus  => true,
+        subscribe  => File['/var/www/html/index.html'],
         # pattern    => ,
     }
 }

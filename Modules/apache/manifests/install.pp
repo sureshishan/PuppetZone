@@ -10,5 +10,6 @@ class apache::install inherits apache::params{
 
     package { $apache::params::package_name :
         ensure => installed,
+        before => File['/var/www/html/index.html']
     }
 }
