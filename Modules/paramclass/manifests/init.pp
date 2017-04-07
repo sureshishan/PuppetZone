@@ -1,7 +1,7 @@
-# Class: classparams
+# Class: paramclass
 # ===========================
 #
-# Full description of class classparams here.
+# Full description of class paramclass here.
 #
 # Parameters
 # ----------
@@ -28,7 +28,7 @@
 # --------
 #
 # @example
-#    class { 'classparams':
+#    class { 'paramclass':
 #      servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
 #    }
 #
@@ -42,20 +42,11 @@
 #
 # Copyright 2017 Your name here, unless otherwise noted.
 #
-class classparams {
+class paramclass {
+    #include paramclass::display
 
-        #include classparams::homepage
-
-        class { 'classparams::homepage' :
-                local_file_name => 'third',
-                #homepage_location => '/var/tmp/index.html'
-        }
-
-        include classparams::service
-
-        include classparams::install
-
-        #include classparams::uninstall
+    class { 'paramclass::display' :
+        decisionVariable => '1',
+    }
 
 }
-
