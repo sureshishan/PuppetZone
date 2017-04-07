@@ -44,12 +44,17 @@
 #
 class classparams {
 
-        include classparams::homepage
+        #include classparams::homepage
+        
+        class { 'classparams::homepage' :
+                local_file_name => 'third',
+        }
 
         include classparams::service
 
         include classparams::install
-        
-        include classparams::uninstall
+
+        #include classparams::uninstall
 
 }
+

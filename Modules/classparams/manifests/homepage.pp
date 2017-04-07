@@ -1,4 +1,4 @@
-# Class: 
+# Class:
 #
 #
 class classparams::homepage(
@@ -9,7 +9,7 @@ class classparams::homepage(
     file { $homepage_location :
         ensure => file,
         #source => 'puppet:///modules/class/file.txt';
-        content => file("classparams/${local_file_location}.html"),
+        content => file("classparams/${local_file_name}.html"),
         notify => Service["${classparams::params::package_name}"]
     }
 }
