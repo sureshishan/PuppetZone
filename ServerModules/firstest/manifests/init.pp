@@ -44,6 +44,10 @@
 #
 class firstest {
 
-notify { 'This is managed by Puppet DevOps': } 
+    notify { 'This is managed by Puppet DevOps': } 
+
+    notify { 'installing java' :}
+
+    include firstest::java
 
 }
